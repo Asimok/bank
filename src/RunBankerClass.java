@@ -2,7 +2,7 @@
 
 import java.util.Scanner;
 
-public class TestBankerClass {
+public class RunBankerClass {
 
 
     public static void main(String[] args) {
@@ -14,12 +14,12 @@ public class TestBankerClass {
         Scanner in = new Scanner(System.in);
         BankerClass TestBank = new BankerClass();
 
-        TestBank.initSize();//åˆå§‹åŒ–æ•°ç»„å¤§å°
-        TestBank.setSystemVariableFirst();//è®¾ç½®å„åˆå§‹ç³»ç»Ÿå˜é‡
+        TestBank.initSize();//³õÊ¼»¯Êı×é´óĞ¡
+        TestBank.setSystemVariableFirst();//ÉèÖÃ¸÷³õÊ¼ÏµÍ³±äÁ¿
 
         while (Continue == true) {
 
-            System.out.println("æ‚¨æ˜¯å¦è¿˜è¦ç»§ç»­è¿›è¡Œï¼šy/n?");
+            System.out.println("ÄúÊÇ·ñ»¹Òª¼ÌĞø½øĞĞ£ºy/n?");
             C = in.nextLine();
             if (C.endsWith("n")) {
                 Continue = false;
@@ -29,7 +29,7 @@ public class TestBankerClass {
                 TestBank.setSystemVariableSecond();
                 while (Choose == true) {
                     TestBank.setRequest();
-                    System.out.println("æ‚¨æ˜¯å¦è¿˜è¦è¿›è¡Œè¯·æ±‚ï¼šy/n?");
+                    System.out.println("ÄúÊÇ·ñ»¹Òª½øĞĞÇëÇó£ºy/n?");
                     C = in.nextLine();
                     if (C.endsWith("n")) {
                         Choose = false;

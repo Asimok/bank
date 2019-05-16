@@ -13,7 +13,7 @@ public class BankerClass {
     int[][] Request = new int[3][3];
     int[] Work = new int[3];
 
-    int num = 0;//è¿›ç¨‹ç¼–å·
+    int num = 0;//½ø³Ì±àºÅ
     Scanner in = new Scanner(System.in);
 
     public BankerClass() {
@@ -21,10 +21,10 @@ public class BankerClass {
     }
     public void initSize()
     {
-        //åˆå§‹åŒ–æ•°ç»„å¤§å°
-        System.out.println("è¯·è¾“å…¥è¿›ç¨‹æ•°é‡ï¼š");
+        //³õÊ¼»¯Êı×é´óĞ¡
+        System.out.println("ÇëÊäÈë½ø³ÌÊıÁ¿£º");
         hang=in.nextInt();
-        System.out.println("è¯·è¾“å…¥èµ„æºç±»å‹æ•°é‡ï¼š");
+        System.out.println("ÇëÊäÈë×ÊÔ´ÀàĞÍÊıÁ¿£º");
         lie=in.nextInt();
 
         Max = new int[hang][lie];
@@ -34,35 +34,36 @@ public class BankerClass {
 
         Work=new int[hang];
         Available=new int[lie];
-        System.out.println("è¯¥ç³»ç»Ÿå¯ç”¨äºæ£€æµ‹  "+hang+"  è¿›ç¨‹"+  lie+"  ç±»èµ„æºæ•°é‡çš„å®‰å…¨æ€§");
+        System.out.println("¸ÃÏµÍ³¿ÉÓÃÓÚ¼ì²â  "+hang+"  ½ø³Ì"+  lie+"  Àà×ÊÔ´ÊıÁ¿µÄ°²È«ĞÔ");
     }
 
 
-    public void setSystemVariableFirst(){//è®¾ç½®å„åˆå§‹ç³»ç»Ÿå˜é‡
-        setAvailable();//è®¾ç½®ç³»ç»Ÿå¯ç”¨çš„ä¸‰ç±»èµ„æºæ•°é‡
-        setMax();//è®¾ç½®å„è¿›ç¨‹æœ€å¤§éœ€æ±‚é‡
+    public void setSystemVariableFirst(){//ÉèÖÃ¸÷³õÊ¼ÏµÍ³±äÁ¿
+        setAvailable();//ÉèÖÃÏµÍ³¿ÉÓÃµÄÈıÀà×ÊÔ´ÊıÁ¿
+        setMax();//ÉèÖÃ¸÷½ø³Ì×î´óĞèÇóÁ¿
+
         printFirstSystemVariable();
     }
     public void setSystemVariableSecond(){
-        //å¦‚æœè¾“å…¥çš„æ•°æ®æ­£ç¡® ç»§ç»­è¿›è¡Œ
+        //Èç¹ûÊäÈëµÄÊı¾İÕıÈ· ¼ÌĞø½øĞĞ
 
-        setAlloction(); //è®¡ç®—AL çŸ©é˜µ
+        setAlloction(); //¼ÆËãAL ¾ØÕó
         printSecondSystemVariable();
         SecurityAlgorithm();
     }
-    public void setAvailable() {//è®¾ç½®ç³»ç»Ÿå¯ç”¨çš„ä¸‰ç±»èµ„æºæ•°é‡
-        System.out.println("è¯·è®¾ç½®ç³»ç»Ÿå¯ç”¨çš„  "+lie+" ç±»èµ„æºæ•°é‡ Availableï¼š");
+    public void setAvailable() {//ÉèÖÃÏµÍ³¿ÉÓÃµÄÈıÀà×ÊÔ´ÊıÁ¿
+        System.out.println("ÇëÉèÖÃÏµÍ³¿ÉÓÃµÄ  "+lie+" Àà×ÊÔ´ÊıÁ¿ Available£º");
         for (int i = 0; i < lie; i++) {
             Available[i] = in.nextInt();
         }
-        System.out.println("è¿™æ˜¯ä¸€ä¸ªä¸‰ä¸ªè¿›ç¨‹ï¼Œåˆå§‹ç³»ç»Ÿå¯ç”¨ä¸‰ç±»èµ„æºä¸º"+ Arrays.toString(Available)+"çš„é“¶è¡Œå®¶ç®—æ³•ï¼š");
+        System.out.println("ÕâÊÇÒ»¸öÈı¸ö½ø³Ì£¬³õÊ¼ÏµÍ³¿ÉÓÃÈıÀà×ÊÔ´Îª"+ Arrays.toString(Available)+"µÄÒøĞĞ¼ÒËã·¨£º");
     }
 
     public void setMax() {
-        //è®¾ç½®MaxçŸ©é˜µ
-        System.out.println("è¯·è®¾ç½®å„è¿›ç¨‹çš„æœ€å¤§éœ€æ±‚çŸ©é˜µMaxï¼š");
+        //ÉèÖÃMax¾ØÕó
+        System.out.println("ÇëÉèÖÃ¸÷½ø³ÌµÄ×î´óĞèÇó¾ØÕóMax£º");
         for (int i = 0; i < hang; i++) {
-            System.out.println("è¯·è¾“å…¥è¿›ç¨‹P" + i + "çš„æœ€å¤§èµ„æºéœ€æ±‚é‡ï¼š");
+            System.out.println("ÇëÊäÈë½ø³ÌP" + i + "µÄ×î´ó×ÊÔ´ĞèÇóÁ¿£º");
             for (int j = 0; j < lie; j++) {
                 Max[i][j] = in.nextInt();
             }
@@ -70,53 +71,49 @@ public class BankerClass {
     }
 
     public void setAlloction() {
-        //è®¾ç½®å·²åˆ†é…çŸ©é˜µAlloction
-        System.out.println("è¯·è®¾ç½®è¯·å„è¿›ç¨‹åˆ†é…çŸ©é˜µAlloctionï¼š");
+        //ÉèÖÃÒÑ·ÖÅä¾ØÕóAlloction
+        System.out.println("ÇëÉèÖÃÇë¸÷½ø³Ì·ÖÅä¾ØÕóAlloction£º");
         for (int i = 0; i < hang; i++) {
-            System.out.println("è¯·è¾“å…¥è¿›ç¨‹P" + i + "çš„åˆ†é…èµ„æºé‡ï¼š");
+            System.out.println("ÇëÊäÈë½ø³ÌP" + i + "µÄ·ÖÅä×ÊÔ´Á¿£º");
             for (int j = 0; j < lie; j++) {
                 Alloction[i][j] = in.nextInt();
             }
         }
 
-        System.out.println("è¿›è¡Œè¿ç®—");
+        System.out.println("½øĞĞÔËËã");
         System.out.println("Available=Available-Alloction");
         System.out.println("Need=Max-Alloction");
-        for (int i = 0; i < hang; i++) {
-            //è®¡ç®—å½“å‰AvailableçŸ©é˜µ
-            for (int j = 0; j < lie; j++) {
+        for (int i = 0; i < lie; i++) {
+            //¼ÆËãµ±Ç°Available¾ØÕó
+            for (int j = 0; j < hang; j++) {
+
                 Available[i] = Available[i] - Alloction[j][i];
             }
         }
         for (int i = 0; i < hang; i++) {
-            //è®¡ç®—NeedçŸ©é˜µ
+            //¼ÆËãNeed¾ØÕó
             for (int j = 0; j < lie; j++) {
                 Need[i][j] = Max[i][j] - Alloction[i][j];
             }
         }
     }
     public void printFirstSystemVariable(){
-        //è¾“å…¥ MAXçŸ©é˜µ Allocation çŸ©é˜µ ä¹‹åè¿›è¡Œç¡®è®¤
-        System.out.println("è¯·æ£€æŸ¥è¾“å…¥æ˜¯å¦æ­£ç¡®ï¼š");
-        System.out.println("è¿›ç¨‹  "+"   Max   "+"   Alloction ");
+        //ÊäÈë MAX¾ØÕó Allocation ¾ØÕó Ö®ºó½øĞĞÈ·ÈÏ
+        System.out.println("Çë¼ì²éÊäÈëÊÇ·ñÕıÈ·£º");
+        System.out.println("½ø³Ì  "+"   Max   "+"   Alloction ");
         for(int i=0;i<hang;i++){
             System.out.print("P"+i+"    ");
             for(int j=0;j<lie;j++){
                 System.out.print(Max[i][j]+"  ");
             }
-            System.out.print("|  ");
-            for(int j=0;j<lie;j++){
-                System.out.print(Alloction[i][j]+"  ");
-            }
-            System.out.print("|  ");
             System.out.println();
         }
     }
 
     public void printSecondSystemVariable(){
-        //è®¡ç®—å‡º Need Avaiable çŸ©é˜µä¹‹åå†æ¬¡è¾“å‡º
-        System.out.println("æ­¤æ—¶èµ„æºåˆ†é…é‡å¦‚ä¸‹ï¼š");
-        System.out.println("è¿›ç¨‹  "+"   Max   "+"   Alloction "+"    Need  "+"     Available ");
+        //¼ÆËã³ö Need Avaiable ¾ØÕóÖ®ºóÔÙ´ÎÊä³ö
+        System.out.println("´ËÊ±×ÊÔ´·ÖÅäÁ¿ÈçÏÂ£º");
+        System.out.println("½ø³Ì  "+"   Max   "+"   Alloction "+"    Need  "+"     Available ");
         for(int i=0;i<hang;i++){
             System.out.print("P"+i+"  ");
             for(int j=0;j<lie;j++){
@@ -140,114 +137,115 @@ public class BankerClass {
         }
     }
 
-    public void setRequest() {//è®¾ç½®è¯·æ±‚èµ„æºé‡Request
+    public void setRequest() {//ÉèÖÃÇëÇó×ÊÔ´Á¿Request
 
 
-        System.out.println("è¯·è¾“å…¥è¯·æ±‚èµ„æºçš„è¿›ç¨‹ç¼–å·ï¼š");
+        System.out.println("ÇëÊäÈëÇëÇó×ÊÔ´µÄ½ø³Ì±àºÅ£º");
         System.out.println();
-        System.out.println("å½“å‰æœ‰è¿›ç¨‹ï¼š");
+        System.out.println("µ±Ç°ÓĞ½ø³Ì£º");
         for(int i=0;i<hang;i++)
         {
             System.out.println("P  "+i);
         }
-        num= in.nextInt();//è®¾ç½®å…¨å±€å˜é‡è¿›ç¨‹ç¼–å·num
-        System.out.println("è¯·è¾“å…¥è¯·æ±‚å„èµ„æºçš„æ•°é‡ï¼š");
+        num= in.nextInt();//ÉèÖÃÈ«¾Ö±äÁ¿½ø³Ì±àºÅnum
+        System.out.println("ÇëÊäÈëÇëÇó¸÷×ÊÔ´µÄÊıÁ¿£º");
         for (int j = 0; j < lie; j++) {
             Request[num][j] = in.nextInt();
         }
-        System.out.println("å³è¿›ç¨‹P" + num + "å¯¹å„èµ„æºè¯·æ±‚Requestï¼š(" + Request[num][0] + "," + Request[num][1] + "," + Request[num][2] + ").");
+        System.out.println("¼´½ø³ÌP" + num + "¶Ô¸÷×ÊÔ´ÇëÇóRequest£º(" + Request[num][0] + "," + Request[num][1] + "," + Request[num][2] + ").");
 
         BankerAlgorithm();
     }
 
-    public void BankerAlgorithm() {//é“¶è¡Œå®¶ç®—æ³•
+    public void BankerAlgorithm() {//ÒøĞĞ¼ÒËã·¨
         boolean T=true;
 
-        if (Request[num][0] <= Need[num][0] && Request[num][1] <= Need[num][1] && Request[num][2] <= Need[num][2]) {//åˆ¤æ–­Requestæ˜¯å¦å°äºNeed
-            if (Request[num][0] <= Available[0] && Request[num][1] <= Available[1] && Request[num][2] <= Available[2]) {//åˆ¤æ–­Requestæ˜¯å¦å°äºAlloction
-                for (int i = 0; i < hang; i++) {
+        if (Request[num][0] <= Need[num][0] && Request[num][1] <= Need[num][1] && Request[num][2] <= Need[num][2]) {//ÅĞ¶ÏRequestÊÇ·ñĞ¡ÓÚNeed
+            if (Request[num][0] <= Available[0] && Request[num][1] <= Available[1] && Request[num][2] <= Available[2]) {//ÅĞ¶ÏRequestÊÇ·ñĞ¡ÓÚAlloction
+                for (int i = 0; i < lie; i++) {
                     Available[i] -= Request[num][i];
                     Alloction[num][i] += Request[num][i];
                     Need[num][i] -= Request[num][i];
                 }
 
             } else {
-                System.out.println("å½“å‰æ²¡æœ‰è¶³å¤Ÿçš„èµ„æºå¯åˆ†é…ï¼Œè¿›ç¨‹P" + num + "éœ€ç­‰å¾…ã€‚");
+                System.out.println("µ±Ç°Ã»ÓĞ×ã¹»µÄ×ÊÔ´¿É·ÖÅä£¬½ø³ÌP" + num + "ĞèµÈ´ı¡£");
                T=false;
             }
         } else {
-            System.out.println("è¿›ç¨‹P" + num + "è¯·æ±‚å·²ç»è¶…å‡ºæœ€å¤§éœ€æ±‚é‡Need.");
+            System.out.println("½ø³ÌP" + num + "ÇëÇóÒÑ¾­³¬³ö×î´óĞèÇóÁ¿Need.");
             T=false;
         }
 
        if(T==true){
            printSecondSystemVariable();
-        System.out.println("ç°åœ¨è¿›å…¥å®‰å…¨ç®—æ³•ï¼š");
+        System.out.println("ÏÖÔÚ½øÈë°²È«Ëã·¨£º");
         SecurityAlgorithm();
        }
     }
 
 
-    public void SecurityAlgorithm() {//å®‰å…¨ç®—æ³•
-        boolean[] Finish = {false, false, false};//åˆå§‹åŒ–Finish
-        int count = 0;//å®Œæˆè¿›ç¨‹æ•°
-        int circle=0;//å¾ªç¯åœˆæ•°
-        int[] S=new int[3];//å®‰å…¨åºåˆ—
-        for (int i = 0; i < hang; i++) {//è®¾ç½®å·¥ä½œå‘é‡
+    public void SecurityAlgorithm() {//°²È«Ëã·¨
+        boolean[] Finish = {false, false, false,false,false};//³õÊ¼»¯Finish
+        int count = 0;//Íê³É½ø³ÌÊı
+        int circle=0;//Ñ­»·È¦Êı
+        int[] S=new int[5];//°²È«ĞòÁĞ
+        for (int i = 0; i < 3; i++) {//ÉèÖÃ¹¤×÷ÏòÁ¿
             Work[i] = Available[i];
         }
         boolean flag = true;
-        while (count < 3) {
+        while (count < 5) {
             if(flag){
-                System.out.println("è¿›ç¨‹  "+"   Work  "+"   Alloction "+"    Need  "+"     Work+Alloction ");
+                System.out.println("½ø³Ì  "+"   Work  "+"   Alloction "+"    Need  "+"     Work+Alloction ");
                 flag = false;
             }
-            for (int i = 0; i < hang; i++) {
+            for (int i = 0; i < 5; i++) {
 
-                if (Finish[i]==false&&Need[i][0]<=Work[0]&&Need[i][1]<=Work[1]&&Need[i][2]<=Work[2]) {//åˆ¤æ–­æ¡ä»¶
+                if (Finish[i]==false&&Need[i][0]<=Work[0]&&Need[i][1]<=Work[1]&&Need[i][2]<=Work[2]) {//ÅĞ¶ÏÌõ¼ş
                     System.out.print("P"+i+"  ");
-                    for (int k = 0; k < lie; k++){
+                    for (int k = 0; k < 5; k++){
                         System.out.print(Work[k]+"  ");
                     }
                     System.out.print("|  ");
-                    for (int j = 0; j<lie; j++){
-                    Work[j]+=Alloction[i][j];
+                    for (int j = 0; j<3;j++){
+                        Work[j]+=Alloction[i][j];
                     }
-                    Finish[i]=true;//å½“å½“å‰è¿›ç¨‹èƒ½æ»¡è¶³æ—¶
-                    S[count]=i;//è®¾ç½®å½“å‰åºåˆ—æ’å·
+                    Finish[i]=true;//µ±µ±Ç°½ø³ÌÄÜÂú×ãÊ±
+                    S[count]=i;//ÉèÖÃµ±Ç°ĞòÁĞÅÅºÅ
 
-                    count++;//æ»¡è¶³è¿›ç¨‹æ•°åŠ 1
-                    for(int j=0;j<lie;j++){
-                       System.out.print(Alloction[i][j]+"  "); 
+                    count++;//Âú×ã½ø³ÌÊı¼Ó1
+                    for(int j=0;j<3;j++){
+                        System.out.print(Alloction[i][j]+"  ");
                     }
                     System.out.print("|  ");
-                    for(int j=0;j<lie;j++){
-                       System.out.print(Need[i][j]+"  "); 
+                    for(int j=0;j<3;j++){
+                        System.out.print(Need[i][j]+"  ");
                     }
                     System.out.print("|  ");
-                    for(int j=0;j<lie;j++){
-                       System.out.print(Work[j]+"  "); 
+                    for(int j=0;j<3;j++){
+                        System.out.print(Work[j]+"  ");
                     }
                     System.out.println();
                 }
 
             }
-            circle++;//å¾ªç¯åœˆæ•°åŠ 1
+            circle++;//Ñ­»·È¦Êı¼Ó1
 
-            if(count==3){//åˆ¤æ–­æ˜¯å¦æ»¡è¶³æ‰€æœ‰è¿›ç¨‹éœ€è¦
-                System.out.print("æ­¤æ—¶å­˜åœ¨ä¸€ä¸ªå®‰å…¨åºåˆ—ï¼š");
-                for (int i = 0; i<hang;i++){//è¾“å‡ºå®‰å…¨åºåˆ—
+            if(count==5){//ÅĞ¶ÏÊÇ·ñÂú×ãËùÓĞ½ø³ÌĞèÒª
+                System.out.print("´ËÊ±´æÔÚÒ»¸ö°²È«ĞòÁĞ£º");
+                for (int i = 0; i<5;i++){//Êä³ö°²È«ĞòÁĞ
                     System.out.print("P"+S[i]+" ");
                 }
-                System.out.println("æ•…å½“å‰å¯åˆ†é…ï¼");
-                break;//è·³å‡ºå¾ªç¯
+                System.out.println("¹Êµ±Ç°¿É·ÖÅä£¡");
+                break;//Ìø³öÑ­»·
             }
-            if(count<circle){//åˆ¤æ–­å®Œæˆè¿›ç¨‹æ•°æ˜¯å¦å°äºå¾ªç¯åœˆæ•°
+            if(count<circle){//ÅĞ¶ÏÍê³É½ø³ÌÊıÊÇ·ñĞ¡ÓÚÑ­»·È¦Êı
                 count=5;
-                System.out.println("å½“å‰ç³»ç»Ÿå¤„äºä¸å®‰å…¨çŠ¶æ€ï¼Œæ•…ä¸å­˜åœ¨å®‰å…¨åºåˆ—ã€‚");
-                break;//è·³å‡ºå¾ªç¯
+                System.out.println("µ±Ç°ÏµÍ³´¦ÓÚ²»°²È«×´Ì¬£¬¹Ê²»´æÔÚ°²È«ĞòÁĞ¡£");
+                break;//Ìø³öÑ­»·
             }
         }
     }
+
 
 }

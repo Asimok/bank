@@ -7,7 +7,6 @@ public class RunBankerClass {
 
     public static void main(String[] args) {
 
-
         boolean Choose = true;
         boolean Continue=true;
         String C;

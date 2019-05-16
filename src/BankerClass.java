@@ -100,9 +100,9 @@ public class BankerClass {
     public void printFirstSystemVariable(){
         //输入 MAX矩阵 Allocation 矩阵 之后进行确认
         System.out.println("请检查输入是否正确：");
-        System.out.println("进程  "+"   Max   "+"   Alloction ");
+        System.out.println("进程  "+"   Max   ");
         for(int i=0;i<hang;i++){
-            System.out.print("P"+i+"    ");
+            System.out.print("P"+i+"     ");
             for(int j=0;j<lie;j++){
                 System.out.print(Max[i][j]+"  ");
             }
@@ -115,7 +115,7 @@ public class BankerClass {
         System.out.println("此时资源分配量如下：");
         System.out.println("进程  "+"   Max   "+"   Alloction "+"    Need  "+"     Available ");
         for(int i=0;i<hang;i++){
-            System.out.print("P"+i+"  ");
+            System.out.print("P"+i+"     ");
             for(int j=0;j<lie;j++){
                System.out.print(Max[i][j]+"  "); 
             }
@@ -186,43 +186,49 @@ public class BankerClass {
 
 
     public void SecurityAlgorithm() {//安全算法
-        boolean[] Finish = {false, false, false,false,false};//初始化Finish
+        boolean[] Finish ;//初始化Finish
+        Finish =new boolean[hang];
+        for (int i=0;i<hang;i++)
+        {
+            Finish[i]=false;
+        }
+
         int count = 0;//完成进程数
         int circle=0;//循环圈数
-        int[] S=new int[5];//安全序列
-        for (int i = 0; i < 3; i++) {//设置工作向量
+        int[] S=new int[hang];//安全序列
+        for (int i = 0; i < lie; i++) {//设置工作向量
             Work[i] = Available[i];
         }
         boolean flag = true;
-        while (count < 5) {
+        while (count < hang) {
             if(flag){
                 System.out.println("进程  "+"   Work  "+"   Alloction "+"    Need  "+"     Work+Alloction ");
                 flag = false;
             }
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < hang; i++) {
 
                 if (Finish[i]==false&&Need[i][0]<=Work[0]&&Need[i][1]<=Work[1]&&Need[i][2]<=Work[2]) {//判断条件
-                    System.out.print("P"+i+"  ");
-                    for (int k = 0; k < 5; k++){
+                    System.out.print("P"+i+"     ");
+                    for (int k = 0; k < lie; k++){
                         System.out.print(Work[k]+"  ");
                     }
                     System.out.print("|  ");
-                    for (int j = 0; j<3;j++){
+                    for (int j = 0; j<lie;j++){
                         Work[j]+=Alloction[i][j];
                     }
                     Finish[i]=true;//当当前进程能满足时
                     S[count]=i;//设置当前序列排号
 
                     count++;//满足进程数加1
-                    for(int j=0;j<3;j++){
+                    for(int j=0;j<lie;j++){
                         System.out.print(Alloction[i][j]+"  ");
                     }
                     System.out.print("|  ");
-                    for(int j=0;j<3;j++){
+                    for(int j=0;j<lie;j++){
                         System.out.print(Need[i][j]+"  ");
                     }
                     System.out.print("|  ");
-                    for(int j=0;j<3;j++){
+                    for(int j=0;j<lie;j++){
                         System.out.print(Work[j]+"  ");
                     }
                     System.out.println();
@@ -231,16 +237,16 @@ public class BankerClass {
             }
             circle++;//循环圈数加1
 
-            if(count==5){//判断是否满足所有进程需要
+            if(count==hang){//判断是否满足所有进程需要
                 System.out.print("此时存在一个安全序列：");
-                for (int i = 0; i<5;i++){//输出安全序列
+                for (int i = 0; i<hang;i++){//输出安全序列
                     System.out.print("P"+S[i]+" ");
                 }
                 System.out.println("故当前可分配！");
                 break;//跳出循环
             }
             if(count<circle){//判断完成进程数是否小于循环圈数
-                count=5;
+
                 System.out.println("当前系统处于不安全状态，故不存在安全序列。");
                 break;//跳出循环
             }
